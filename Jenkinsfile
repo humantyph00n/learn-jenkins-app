@@ -3,17 +3,17 @@ pipeline {
 
     stages {
         stage('Build') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Test') {
             agent {
                 docker {
                     image 'node:18-alpine'
                     reuseNode true
                 }
             }
-            steps {
-                echo 'Hello World'
-            }
-        }
-        stage('Test') {
             steps {
                 echo 'Test stage'
                 sh '''
